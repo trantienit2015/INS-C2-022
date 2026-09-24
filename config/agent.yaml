@@ -1,0 +1,24 @@
+# Agent Manifest — AgentRegistry entry point.
+# Root-level keys only: the registry keys into this mapping directly, so anything
+# nested under an `agent:` block is invisible to it. Runtime-tunable parameters
+# belong in config/config.yaml, not here.
+
+id: "INS-C2-022"
+name: "ins_c2_022_cat_claims_triage"
+namespace: "ins"
+version: "0.1.0"
+enabled: true
+description: "CAT Claims Triage & Rapid Payout Orchestration Agent"
+class: "src.graph.graph.ClaimsTriageOrchestrationGraph"
+
+category: "Cat 2"
+industry: "INS"
+base_type: "Orchestration"  # mass-surge claims triage + rapid payout orchestration pipeline
+generation_mode: "deterministic"
+
+# Security — the outer boundary requires a verified caller.
+required_trust_level: "VERIFIED_EXTERNAL"
+
+requires:
+  secrets: []
+  extras: []

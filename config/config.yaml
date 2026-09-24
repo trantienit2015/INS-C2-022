@@ -1,0 +1,14 @@
+# Runtime parameters — loaded separately by the registry and passed to the graph
+# as Graph(config=...). Static manifest fields live in config/agent.yaml.
+
+max_retry: 3
+timeout_s: 30
+# memory_enabled is mandatory alongside hitl.enabled: the checkpointer is what
+# makes the interrupt()/resume pause possible.
+memory_enabled: true
+hitl:
+  enabled: true
+  max_hitl: 8
+
+# Below this triage score a claim is fast-tracked without adjuster review.
+fast_track_threshold: 0.4
